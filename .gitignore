@@ -25,6 +25,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# RubyMineのデフォルトでアプリ機能に不必要だったもの
+.idea
+
 # ENV環境変数
 .env
 
