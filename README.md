@@ -24,6 +24,7 @@
   - name: string
   - email: string
   - password: string
+  - admin: boolean
   
 - Taskモデル
   - title: string
@@ -31,7 +32,6 @@
   - status: integer（定数管理）
   - expired_at: datetime
   - priority: integer（定数管理）
-  - admin: boolean
   - user_id: integer
   
 - Labelモデル
