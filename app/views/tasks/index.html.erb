@@ -15,6 +15,12 @@
     <tr>
       <td><%= task.title %></td>
       <td><%= task.content %></td>
+      <td><%= link_to t("layout.views.show"), task %></td>
+      <td><%= link_to t("layout.views.edit"), edit_task_path(task) %></td>
+      <td>
+        <%= link_to t("layout.views.destroy"), task, method: :delete,
+        data: { confirm: t("layout.views.confirm_destroy") } %>
+      </td>
     </tr>
   <% end %>
   </tbody>

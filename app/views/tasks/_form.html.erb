@@ -11,10 +11,10 @@
     </div>
   <% end %>
 
-  <%= f.label :title, t("layout.task.name") %>
+  <%= f.label :title, t("layout.task.title") %>
   <%= f.text_field :title, class: 'form-control' %>
-  <%= f.label :content, t("layout.task.rent") %>
-  <%= f.text_field :content, class: 'form-control' %><%= t("number.currency.format.unit") %>
+  <%= f.label :content, t("layout.task.content") %>
+  <%= f.text_field :content, class: 'form-control' %>
 
     <div class='actions'><%= f.submit %></div>
 <% end %>
