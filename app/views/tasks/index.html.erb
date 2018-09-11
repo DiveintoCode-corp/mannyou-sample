@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t("layout.task.index_title") %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th><%= t("layout.task.title") %></th>
+    <th><%= t("layout.task.content") %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.content %></td>
+      <td><%= link_to t("layout.views.show"), task %></td>
+      <td><%= link_to t("layout.views.edit"), edit_task_path(task) %></td>
+      <td>
+        <%= link_to t("layout.views.destroy"), task, method: :delete,
+        data: { confirm: t("layout.views.confirm_destroy") } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t("layout.task.new"), new_task_path %>

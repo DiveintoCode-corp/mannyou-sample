@@ -1,0 +1,19 @@
+ja:
+  layout:
+    task:
+      new: "タスクを登録する"
+      new_title: "タスク登録"
+      index_title: "タスク一覧"
+      show_title: "タスク編集"
+      notice_create: "タスク情報を登録しました"
+      notice_update: "タスク情報を更新しました"
+      notice_destroy: "タスク情報を削除しました"
+      title: "タスク名"
+      content: "タスク詳細"
+    views:
+      error_indicate: "つのエラーがありますので修正してください"
+      show: "詳細"
+      edit: "編集"
+      destroy: "削除"
+      confirm_destroy: "本当に削除しても良いですか？"
+      back: "戻る"

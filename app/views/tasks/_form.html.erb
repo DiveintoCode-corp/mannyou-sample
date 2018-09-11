@@ -1,0 +1,20 @@
+<%= form_for(task) do |f| %>
+  <% if task.errors.any? %>
+    <div id='error_explanation'>
+      <h2><%= pluralize(task.errors.count, t("layout.views.error_indicate")) %></h2>
+
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :title, t("layout.task.title") %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <%= f.label :content, t("layout.task.content") %>
+  <%= f.text_field :content, class: 'form-control' %>
+
+    <div class='actions'><%= f.submit %></div>
+<% end %>

@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<div class='show-form'><strong><%= t("layout.task.title") %>：</strong><%= @task.title %></div>
+<div class='show-form'><strong><%= t("layout.task.content") %>：</strong><%= @task.content %></div>
+
+<%= link_to t("layout.views.edit"), edit_task_path(@task) %> |
+<%= link_to t("layout.views.back"), tasks_path %>
