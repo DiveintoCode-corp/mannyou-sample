@@ -11,7 +11,9 @@ ja:
       title: "タスク名"
       content: "タスク詳細"
       expired_at: "終了期限"
-      sort: "タスクを終了期限順に並び替える"
+      status: "状態"
+      sort_expired: "タスクを終了期限順に並び替える"
+      title_search: "タイトル検索"
     views:
       error_indicate: "つのエラーがありますので修正してください"
       show: "詳細"
@@ -19,3 +21,4 @@ ja:
       destroy: "削除"
       confirm_destroy: "本当に削除しても良いですか？"
       back: "戻る"
+      search: "検索する"
