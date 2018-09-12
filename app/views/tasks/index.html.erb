@@ -7,6 +7,7 @@
   <tr>
     <th><%= t("layout.task.title") %></th>
     <th><%= t("layout.task.content") %></th>
+    <th><%= t("layout.task.expired_at") %></th>
   </tr>
   </thead>
 
@@ -15,6 +16,7 @@
     <tr>
       <td><%= task.title %></td>
       <td><%= task.content %></td>
+      <td><%= task.expired_at %></td>
       <td><%= link_to t("layout.views.show"), task %></td>
       <td><%= link_to t("layout.views.edit"), edit_task_path(task) %></td>
       <td>
@@ -29,3 +31,4 @@
 <br>
 
 <%= link_to t("layout.task.new"), new_task_path %>
+<%= link_to t("layout.task.sort"), tasks_path(sort_created: true) %>

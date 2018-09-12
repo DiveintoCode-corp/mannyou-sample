@@ -10,6 +10,8 @@ ja:
       notice_destroy: "タスク情報を削除しました"
       title: "タスク名"
       content: "タスク詳細"
+      expired_at: "終了期限"
+      sort: "タスクを終了期限順に並び替える"
     views:
       error_indicate: "つのエラーがありますので修正してください"
       show: "詳細"
