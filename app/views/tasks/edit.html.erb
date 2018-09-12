@@ -1,0 +1,6 @@
+<h1><%= t("layout.task.show_title") %></h1>
+
+<%= render 'form', task: @task %>
+
+<%= link_to t("layout.views.show"), @task %> |
+<%= link_to t("layout.views.back"), tasks_path %>

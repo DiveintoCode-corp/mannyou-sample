@@ -17,3 +17,28 @@
 - bundle install --path vendor/bundle
 - rails db:create db:migrate
 - rails s
+
+# モデル・テーブル構造（初期想定）
+
+- Userモデル
+  - name: string
+  - email: string
+  - password: string
+  - admin: boolean
+  
+- Taskモデル
+  - title: string
+  - content: text
+  - status: integer（定数管理）
+  - expired_at: datetime
+  - priority: integer（定数管理）
+  - user_id: integer
+  
+- Labelモデル
+  - name: title
+  - default_flg: boolean
+  - user_id: integer
+  
+- Labelingモデル
+  - label_id: integer
+  - task_id: integer
