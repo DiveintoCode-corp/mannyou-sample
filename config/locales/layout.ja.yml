@@ -14,6 +14,7 @@ ja:
       status: "状態"
       sort_expired: "タスクを終了期限順に並び替える"
       title_search: "タイトル検索"
+      status_search: "状態検索"
     views:
       error_indicate: "つのエラーがありますので修正してください"
       show: "詳細"
@@ -22,3 +23,5 @@ ja:
       confirm_destroy: "本当に削除しても良いですか？"
       back: "戻る"
       search: "検索する"
+      search_sort_title: "検索してタイトル順に並べる"
+      search_sort_expired: "期限順に並べる"

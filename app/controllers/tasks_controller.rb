@@ -2,7 +2,17 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = params[:sort_expired] == "true" ? Task.order(:expired_at) : Task.order(:title)
+    # 代入
+    @tasks = Task.limit(50)
+
+    # 検索（絞り込み）
+    if params[:task].present? && params[:task][:search] == "true"
+      @tasks = @tasks.where("title LIKE ?", "%#{ params[:task][:title] }%") if params[:task][:title].present?
+      @tasks = @tasks.where(status: params[:task][:status]) if params[:task][:status].present?
+    end
+
+    # 並び替え
+    @tasks = sort_expired? ? @tasks.order(:expired_at) : @tasks.order(:title)
   end
 
   def show; end
@@ -45,4 +55,24 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:title, :content, :expired_at, :status)
   end
+
+  def sort_expired?
+    params[:sort_expired] == "true" || (params[:task].present? && params[:task][:sort_expired] == "true")
+  end
+
+  def escape_like(str)
+    # LIKE 句では % を \% に _ を \_ に \ を \\ にエスケープする必要がある
+    str.gsub(/\\/, "\\\\").gsub(/%/, "\\%").gsub(/_/, "\\_")
+  end
 end
+
+
+
+
+# if params[:task].present? && params[:task][:search] == "true"
+#   # モデルに移すべき・・・かな？
+#   @tasks.where("title LIKE ?", "%#{ params[:task][:title] }%") if params[:task][:title].present?
+#   @tasks.where(status: "%#{ params[:task][:status] }%") if params[:task][:status].present?
+#   # さらに変な文字が来た時用
+#   # Task.where("title LIKE ?", "%#{ escape_like(params[:task][:title]) }%")
+# end
