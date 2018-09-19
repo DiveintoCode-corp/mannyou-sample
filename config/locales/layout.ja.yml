@@ -35,3 +35,9 @@ ja:
       login: "ログイン"
       logout: "ログアウト"
       email: "メールアドレス"
+    admin:
+      index_users: "管理画面・ユーザー一覧"
+      show_user: "管理画面・ユーザー詳細"
+      edit_user: "管理画面・ユーザー編集"
+      new_user: "管理画面・ユーザー登録"
+      new: "ユーザーを登録する"

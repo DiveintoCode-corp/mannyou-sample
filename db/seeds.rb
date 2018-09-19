@@ -1,6 +1,13 @@
-User.create!(name: "tester", email: "test@gmail.com", password: "199392", admin: true)
+User.create!(name: "tester_admin", email: "test_admin@gmail.com", password: "199392", admin: true)
 
-1000.times do |i|
+10.times do |i|
+  User.create!(name: "tester_#{i}",
+               email: "test_#{i}@gmail.com",
+               password: "199392",
+  )
+end
+
+500.times do |i|
   Task.create!(title: "a_#{i}",
                content: "test_data",
                expired_at: Date.today,
