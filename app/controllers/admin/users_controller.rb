@@ -19,7 +19,9 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @tasks = @user.tasks.limit(20)
+  end
 
   def edit; end
 
