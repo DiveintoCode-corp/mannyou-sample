@@ -56,3 +56,5 @@
 <%= link_to t("layout.task.new"), new_task_path %>
 <%= link_to t("layout.task.sort_expired"), tasks_path(sort_expired: 'true') %>
 <%= link_to t("layout.task.sort_priority"), tasks_path(sort_priority: 'true') %>
+
+<%= paginate @tasks %>

@@ -1,5 +1,9 @@
 ja:
   layout:
+    session:
+      notice_fail: "ログインに失敗しました"
+      notice_logout: "ログアウトしました"
+      require_login: "ログインしてください"
     task:
       new: "タスクを登録する"
       new_title: "タスク登録"
@@ -27,3 +31,7 @@ ja:
       search: "検索する"
       search_sort_title: "検索してタイトル順に並べる"
       search_sort_expired: "期限順に並べる"
+      sign_up: "ユーザー登録"
+      login: "ログイン"
+      logout: "ログアウト"
+      email: "メールアドレス"

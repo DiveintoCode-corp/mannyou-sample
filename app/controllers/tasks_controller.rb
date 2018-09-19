@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
+  before_action :require_logged_in
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
     # 代入
-    @tasks = Task.limit(50)
+    @tasks = current_user.tasks.limit(50)
 
     # 検索（絞り込み）
     if params[:task].present? && params[:task][:search] == "true"
@@ -17,18 +18,21 @@ class TasksController < ApplicationController
     elsif params[:sort_priority] == "true"
       @tasks = @tasks.order(priority: "DESC")
     end
+
+    # ページネーション
+    @tasks = @tasks.page(params[:page]).per(20)
   end
 
   def show; end
 
-  def newq
+  def new
     @task = Task.new
   end
 
   def edit; end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
 
     if @task.save
       redirect_to @task, notice: t("layout.task.notice_create")
@@ -64,13 +68,17 @@ class TasksController < ApplicationController
     params[:sort_expired] == "true" || (params[:task].present? && params[:task][:sort_expired] == "true")
   end
 
-  def escape_like(str)
-    # LIKE 句では % を \% に _ を \_ に \ を \\ にエスケープする必要がある
-    str.gsub(/\\/, "\\\\").gsub(/%/, "\\%").gsub(/_/, "\\_")
+  def require_logged_in
+    redirect_to new_session_path, notice: t("layout.session.require_login") unless logged_in?
   end
 end
 
 
+
+# def escape_like(str)
+#   # LIKE 句では % を \% に _ を \_ に \ を \\ にエスケープする必要がある
+#   str.gsub(/\\/, "\\\\").gsub(/%/, "\\%").gsub(/_/, "\\_")
+# end
 
 
 # if params[:task].present? && params[:task][:search] == "true"
