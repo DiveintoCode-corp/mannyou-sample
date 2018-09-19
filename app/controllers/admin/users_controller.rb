@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :require_admin
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,7 +15,7 @@ class Admin::UsersController < ApplicationController
     if @user.save
       redirect_to admin_user_path(@user.id)
     else
-      render 'new'
+      render 'admin/users/new' # ハードコーディングのため要相談
     end
   end
 
@@ -26,7 +27,7 @@ class Admin::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to admin_user_path(@user.id)
     else
-      render :edit
+      render 'admin/users/edit' # ハードコーディングのため要相談
     end
   end
 
@@ -36,6 +37,10 @@ class Admin::UsersController < ApplicationController
   end
 
   private
+
+  def require_admin
+    raise "unauthorized_administrator_access" unless current_user && current_user.admin == true
+  end
 
   def set_user
     @user = User.find(params[:id])

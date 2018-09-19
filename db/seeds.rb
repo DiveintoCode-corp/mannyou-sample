@@ -1,8 +1,8 @@
-User.create!(name: "tester_admin", email: "test_admin@gmail.com", password: "199392", admin: true)
+User.create!(name: "tester_admin", email: "test_admin_#{[*1..1000].sample}@gmail.com", password: "199392", admin: true)
 
 10.times do |i|
   User.create!(name: "tester_#{i}",
-               email: "test_#{i}@gmail.com",
+               email: "test_#{i}_#{[*1..1000].sample}@gmail.com",
                password: "199392",
   )
 end
