@@ -6,3 +6,5 @@ ja:
       task:
         title: "タイトル"
         content: "タスク詳細"
+        status: "状態"
+        priorities: "優先順位"

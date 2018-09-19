@@ -12,12 +12,16 @@ class TasksController < ApplicationController
     end
 
     # 並び替え
-    @tasks = sort_expired? ? @tasks.order(:expired_at) : @tasks.order(:title)
+    if @tasks == sort_expired?
+      @tasks = @tasks.order(:expired_at)
+    elsif params[:sort_priority] == "true"
+      @tasks = @tasks.order(priority: "DESC")
+    end
   end
 
   def show; end
 
-  def new
+  def newq
     @task = Task.new
   end
 
