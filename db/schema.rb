@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_19_034509) do
+ActiveRecord::Schema.define(version: 2018_09_24_113146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "labelings", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "label_id", null: false
+    t.index ["label_id"], name: "index_labelings_on_label_id"
+    t.index ["task_id"], name: "index_labelings_on_task_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name", limit: 100, default: "", null: false
+    t.bigint "user_id"
+    t.boolean "default", default: true, null: false
+    t.index ["user_id"], name: "index_labels_on_user_id"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string "title", limit: 500, default: "", null: false

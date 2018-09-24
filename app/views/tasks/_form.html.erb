@@ -19,6 +19,12 @@
   <%= f.date_select :expired_at, class: 'form-control', value: Time.now.strftime("%Y-%m-%d") %>
   <%= f.label :status, t("layout.task.status") %>
   <%= f.select :status, Task.statuses.keys, class: 'form-control' %>
+  <br>
 
-    <div class='actions'><%= f.submit %></div>
+  <% Label.all.each do |label| %>
+    <%= f.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
+    <label style="background-color: aquamarine"><%= label.name %></label>
+  <% end %>
+
+  <div class='actions'><%= f.submit %></div>
 <% end %>

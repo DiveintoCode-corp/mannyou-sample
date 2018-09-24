@@ -35,6 +35,11 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
 
     if @task.save
+      if params[:task][:label_ids].present?
+        labeling_params[:label_ids].each do |label_id|
+          Labeling.create!(task_id: @task.id, label_id: label_id.to_i) unless label_id.to_i == 0
+        end
+      end
       redirect_to @task, notice: t("layout.task.notice_create")
     else
       render :new
@@ -62,6 +67,10 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:title, :content, :expired_at, :status)
+  end
+
+  def labeling_params
+    params.require(:task).permit(label_ids: [])
   end
 
   def sort_expired?

@@ -16,3 +16,7 @@ end
                user_id: User.all.sample.id
               )
 end
+
+10.times do |i|
+  Label.create!(name: "test_label_#{i}_#{[*1..1000].sample}")
+end

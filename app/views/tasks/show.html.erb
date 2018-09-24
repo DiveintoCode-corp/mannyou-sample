@@ -5,6 +5,10 @@
 <div class='show-form'><strong><%= t("layout.task.expired_at") %>：</strong><%= @task.expired_at %></div>
 <div class='show-form'><strong><%= t("layout.task.status") %>：</strong><%= @task.status %></div>
 
+<% @task.labeling_labels.each do |label| %>
+  <div style="margin-bottom: 10px"><label style="background-color: aquamarine"><%= label.name %></label></div>
+<% end %>
+
 
 <%= link_to t("layout.views.edit"), edit_task_path(@task) %> |
 <%= link_to t("layout.views.back"), tasks_path %>
