@@ -36,6 +36,7 @@ class TasksController < ApplicationController
 
     if @task.save
       if params[:task][:label_ids].present?
+        # エラー対策何もできていないので一応何かしたい
         labeling_params[:label_ids].each do |label_id|
           Labeling.create!(task_id: @task.id, label_id: label_id.to_i) unless label_id.to_i == 0
         end
@@ -75,10 +76,6 @@ class TasksController < ApplicationController
 
   def sort_expired?
     params[:sort_expired] == "true" || (params[:task].present? && params[:task][:sort_expired] == "true")
-  end
-
-  def require_logged_in
-    redirect_to new_session_path, notice: t("layout.session.require_login") unless logged_in?
   end
 end
 

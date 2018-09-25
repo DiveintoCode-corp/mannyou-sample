@@ -1,3 +1,9 @@
 <h1><%= @user.name %></h1>
 
 <p><%= t("layout.views.email") %>: <%= @user.email %></p>
+
+<%= link_to t("layout.task.new"), new_task_path %>
+<%= link_to t("layout.task.index"), tasks_path %>
+<br>
+<%= link_to t("layout.label.new"), new_label_path %>
+<%= link_to t("layout.label.index"), labels_path %>

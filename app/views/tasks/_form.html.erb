@@ -1,4 +1,4 @@
-<%= form_with(model: task) do |f| %>
+<%= form_with(model: task, local: true) do |f| %>
   <% if task.errors.any? %>
     <div id='error_explanation'>
       <h2><%= pluralize(task.errors.count, t("layout.views.error_indicate")) %></h2>
@@ -21,7 +21,7 @@
   <%= f.select :status, Task.statuses.keys, class: 'form-control' %>
   <br>
 
-  <% Label.all.each do |label| %>
+  <% Label.can_use(current_user).each do |label| %>
     <%= f.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
     <label style="background-color: aquamarine"><%= label.name %></label>
   <% end %>
