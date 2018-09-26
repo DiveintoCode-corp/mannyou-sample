@@ -30,7 +30,7 @@ ja:
       edit_title: "ラベル編集"
       index_title: "ラベル一覧"
       name: "ラベル名"
-      default: "自作ラベルか？"
+      default: "デフォルトラベルか？"
       notice_create: "ラベル情報を登録しました"
       notice_update: "ラベル情報を更新しました"
       notice_destroy: "ラベル情報を削除しました"

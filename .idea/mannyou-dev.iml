@@ -526,33 +526,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="gon (vbundled(6.2.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="2" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/js" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/doc" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/coffee" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/js" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/doc" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/coffee" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/js" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/doc" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/gon-6.2.1/coffee" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="i18n (vbundled(1.1.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="2" />
@@ -1234,24 +1207,6 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rb-inotify-0.9.10/spec" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="request_store (vbundled(1.4.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="2" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/request_store-1.4.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/request_store-1.4.1/test" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/request_store-1.4.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/request_store-1.4.1/test" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/request_store-1.4.1/test" />
         </excluded>
       </library>
     </orderEntry>

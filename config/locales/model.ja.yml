@@ -16,4 +16,4 @@ ja:
         password_confirmation: "パスワード（確認）"
       label:
         name: "ラベル名"
-        default: "自作判定"
+        default: "デフォルト判定"
