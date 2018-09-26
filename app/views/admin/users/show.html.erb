@@ -1,0 +1,16 @@
+<h1><%= t("layout.admin.show_user") %></h1>
+
+<p>ID：<%= @user.id %></p>
+<p>名前：<%= @user.name %></p>
+<p>メールアドレス：<%= @user.email %></p>
+<p>管理者：<%= @user.admin %></p>
+
+<% @tasks.each do |task| %>
+  <p>
+    タスク名：<%= task.title %> / 状態：<%= task.status %> /
+    期限：<%= task.expired_at %> / 優先順位：<%= task.priority %>
+  </p>
+<% end %>
+
+
+<%= link_to t("layout.views.back"), admin_users_path %>

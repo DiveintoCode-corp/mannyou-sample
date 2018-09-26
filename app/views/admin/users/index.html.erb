@@ -1,0 +1,13 @@
+<h1><%=  t("layout.admin.index_users") %></h1>
+
+<% @users.each do |user| %>
+  <p>
+    <%= user.id %>：<%= user.name %> / タスク数：<%= user.tasks.count %>
+    <%= link_to t("layout.views.show"), admin_user_path(user) %>
+    <%= link_to t("layout.views.edit"), edit_admin_user_path(user) %>
+    <%= link_to t("layout.views.destroy"), admin_user_path(user), method: :delete,
+                data: { confirm: t("layout.views.confirm_destroy") } %>
+  </p>
+<% end %>
+
+<%= link_to t("layout.admin.new"), new_admin_user_path %>

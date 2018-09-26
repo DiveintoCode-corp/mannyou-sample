@@ -2,12 +2,36 @@
 
 <h1><%= t("layout.task.index_title") %></h1>
 
+<%= form_with(model: Task.new, local: true, method: :get, url: tasks_path) do |f| %>
+  <%= f.label :title_search, t("layout.task.title_search") %>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <%= f.label :status_search, t("layout.task.status_search") %>
+  <%= f.select :status, Task.statuses.keys, class: 'form-control', include_blank: true, selected: '' %>
+
+  <%= f.label :label_id, t("layout.label.search") %>
+  <%= f.select :label_id, Label.can_use(current_user).map{|l| [l.name, l.id]}, include_blank: true %>
+
+  <%= f.hidden_field :search, value: 'true' %>
+
+  <%= f.label :status_search, t("layout.views.search_sort_expired") %>
+  <%= f.radio_button :sort_expired, 'true' %>
+
+  <span class='actions'><%= f.submit t("layout.views.search") %></span>
+  <br><br>
+<% end %>
+
 <table>
   <thead>
   <tr>
     <th><%= t("layout.task.title") %></th>
     <th><%= t("layout.task.content") %></th>
     <th><%= t("layout.task.expired_at") %></th>
+    <th><%= t("layout.task.status") %></th>
+    <th><%= t("layout.task.priority") %></th>
+    <th><%= t("layout.views.show") %></th>
+    <th><%= t("layout.views.edit") %></th>
+    <th><%= t("layout.views.destroy") %></th>
   </tr>
   </thead>
 
@@ -17,6 +41,8 @@
       <td><%= task.title %></td>
       <td><%= task.content %></td>
       <td><%= task.expired_at %></td>
+      <td><%= task.status %></td>
+      <td><%= task.priority %></td>
       <td><%= link_to t("layout.views.show"), task %></td>
       <td><%= link_to t("layout.views.edit"), edit_task_path(task) %></td>
       <td>
@@ -31,4 +57,10 @@
 <br>
 
 <%= link_to t("layout.task.new"), new_task_path %>
-<%= link_to t("layout.task.sort"), tasks_path(sort_created: true) %>
+<%= link_to t("layout.task.sort_expired"), tasks_path(sort_expired: 'true') %>
+<%= link_to t("layout.task.sort_priority"), tasks_path(sort_priority: 'true') %>
+<br>
+<%= link_to t("layout.label.new"), new_label_path %>
+<%= link_to t("layout.label.index"), labels_path %>
+
+<%= paginate @tasks %>
