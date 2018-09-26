@@ -17,7 +17,7 @@ class TasksController < ApplicationController
     end
 
     # 並び替え
-    if @tasks == sort_expired?
+    if sort_expired?
       @tasks = @tasks.order(:expired_at)
     elsif params[:sort_priority] == "true"
       @tasks = @tasks.order(priority: "DESC")
