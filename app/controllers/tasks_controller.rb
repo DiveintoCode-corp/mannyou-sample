@@ -6,10 +6,14 @@ class TasksController < ApplicationController
     # 代入
     @tasks = current_user.tasks.limit(50)
 
-    # 検索（絞り込み）
+    # 検索（絞り込み。見本なのでそのまんまに書いているが、わかりづらい上にファットコントローラなのでモデルに移してリファクタすべき）
     if params[:task].present? && params[:task][:search] == "true"
       @tasks = @tasks.where("title LIKE ?", "%#{ params[:task][:title] }%") if params[:task][:title].present?
       @tasks = @tasks.where(status: params[:task][:status]) if params[:task][:status].present?
+      # これがラベル検索。みづらい。
+      unless params[:task][:label_id].blank? && params[:task][:label_id].to_i.zero?
+        @tasks = @tasks.where(id: Labeling.where(label_id: params[:task][:label_id].to_i).pluck(:task_id))
+      end
     end
 
     # 並び替え

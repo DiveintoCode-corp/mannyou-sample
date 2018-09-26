@@ -34,6 +34,7 @@ ja:
       notice_create: "ラベル情報を登録しました"
       notice_update: "ラベル情報を更新しました"
       notice_destroy: "ラベル情報を削除しました"
+      search: "ラベル検索"
     views:
       error_indicate: "つのエラーがありますので修正してください"
       show: "詳細"

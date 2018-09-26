@@ -9,6 +9,9 @@
   <%= f.label :status_search, t("layout.task.status_search") %>
   <%= f.select :status, Task.statuses.keys, class: 'form-control', include_blank: true, selected: '' %>
 
+  <%= f.label :label_id, t("layout.label.search") %>
+  <%= f.select :label_id, Label.can_use(current_user).map{|l| [l.name, l.id]}, include_blank: true %>
+
   <%= f.hidden_field :search, value: 'true' %>
 
   <%= f.label :status_search, t("layout.views.search_sort_expired") %>
