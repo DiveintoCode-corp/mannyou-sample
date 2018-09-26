@@ -9,6 +9,7 @@ ja:
         content: "タスク詳細"
         status: "状態"
         priorities: "優先順位"
+        read_at: "既読判定"
       user:
         name: "名前"
         email: "メールアドレス"

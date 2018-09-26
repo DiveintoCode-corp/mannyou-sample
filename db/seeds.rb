@@ -23,9 +23,10 @@ test_labels = ['仕事', '宿題', 'ルーチン', '日課', 'スカンクワー
   Label.create!(name: "#{test_labels.sample}_#{i}_#{[*1..1000].sample}")
 end
 
-20.times do |i|
-  Label.create!(name: "#{test_labels.sample}_#{i + 10}_#{[*1..1000].sample}", default: false, user_id: User.all.sample.id)
-end
+# ややこいので一旦ペンディング
+# 20.times do |i|
+#   Label.create!(name: "#{test_labels.sample}_#{i + 10}_#{[*1..1000].sample}", default: false, user_id: User.all.sample.id)
+# end
 
 200.times do
   labeling = Labeling.new(task_id: Task.all.sample.id, label_id: Label.all.sample.id)

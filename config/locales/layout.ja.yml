@@ -19,10 +19,13 @@ ja:
       expired_at: "終了期限"
       status: "状態"
       priority: "優先順位"
+      read_at: "既読・未読"
       sort_expired: "タスクを終了期限順に並び替える"
       sort_priority: "タスクを優先順位順に並び替える"
       title_search: "タイトル検索"
       status_search: "状態検索"
+      expire_warning_alert: "もうすぐ期限が切れそうなタスク一覧です"
+      expire_danger_alert: "期限が切れてしまったタスク一覧です"
     label:
       new: "ラベルを登録する"
       index: "ラベル一覧を見る"
@@ -49,6 +52,8 @@ ja:
       login: "ログイン"
       logout: "ログアウト"
       email: "メールアドレス"
+      read: "既読"
+      not_read: "未読"
     admin:
       index_users: "管理画面・ユーザー一覧"
       show_user: "管理画面・ユーザー詳細"

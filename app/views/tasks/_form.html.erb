@@ -19,6 +19,10 @@
   <%= f.date_select :expired_at, class: 'form-control', value: Time.now.strftime("%Y-%m-%d") %>
   <%= f.label :status, t("layout.task.status") %>
   <%= f.select :status, Task.statuses.keys, class: 'form-control' %>
+  <% if task.read_at == true %>
+    <%= f.label :read_at, t("layout.task.read_at") %>
+    <%= f.check_box :read_at %>
+  <% end %>
   <br>
 
   <% Label.can_use(current_user).each do |label| %>

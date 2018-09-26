@@ -3,8 +3,11 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
+    # スコープ、書こう！
     # 代入
     @tasks = current_user.tasks.limit(50)
+    @expire_warning_tasks = current_user.tasks.limit(50).where(status: [0, 1]).where(expired_at: Time.zone.today..(Time.zone.today + 7)).order(:expired_at)
+    @expire_danger_tasks = current_user.tasks.limit(50).where(status: [0, 1]).where("expired_at < ?", Time.zone.today).order(:expired_at)
 
     # 検索（絞り込み。見本なのでそのまんまに書いているが、わかりづらい上にファットコントローラなのでモデルに移してリファクタすべき）
     if params[:task].present? && params[:task][:search] == "true"
@@ -27,7 +30,10 @@ class TasksController < ApplicationController
     @tasks = @tasks.page(params[:page]).per(20)
   end
 
-  def show; end
+  def show
+    @task.read_at = true
+    @task.save!
+  end
 
   def new
     @task = Task.new
@@ -68,7 +74,7 @@ class TasksController < ApplicationController
           Labeling.create!(task_id: @task.id, label_id: label_id.to_i) unless label_id.to_i == 0 || @task.labeling_labels.ids.include?(label_id.to_i)
         end
       end
-      redirect_to @task, notice: t("layout.task.notice_update")
+      redirect_to tasks_path, notice: t("layout.task.notice_update")
     else
       render :edit
     end
@@ -86,7 +92,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :content, :expired_at, :status)
+    params.require(:task).permit(:title, :content, :expired_at, :status, :read_at)
   end
 
   def labeling_params

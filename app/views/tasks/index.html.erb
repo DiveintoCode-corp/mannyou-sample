@@ -21,38 +21,7 @@
   <br><br>
 <% end %>
 
-<table>
-  <thead>
-  <tr>
-    <th><%= t("layout.task.title") %></th>
-    <th><%= t("layout.task.content") %></th>
-    <th><%= t("layout.task.expired_at") %></th>
-    <th><%= t("layout.task.status") %></th>
-    <th><%= t("layout.task.priority") %></th>
-    <th><%= t("layout.views.show") %></th>
-    <th><%= t("layout.views.edit") %></th>
-    <th><%= t("layout.views.destroy") %></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @tasks.each do |task| %>
-    <tr>
-      <td><%= task.title %></td>
-      <td><%= task.content %></td>
-      <td><%= task.expired_at %></td>
-      <td><%= task.status %></td>
-      <td><%= task.priority %></td>
-      <td><%= link_to t("layout.views.show"), task %></td>
-      <td><%= link_to t("layout.views.edit"), edit_task_path(task) %></td>
-      <td>
-        <%= link_to t("layout.views.destroy"), task, method: :delete,
-        data: { confirm: t("layout.views.confirm_destroy") } %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render partial: 'contents_detail', locals: { tasks: @tasks } %>
 
 <br>
 
@@ -64,3 +33,27 @@
 <%= link_to t("layout.label.index"), labels_path %>
 
 <%= paginate @tasks %>
+
+<br><br>
+
+<p><label style="background-color: orange"><%= t("layout.task.expire_warning_alert") %></label></p>
+
+<%= render partial: 'contents_detail', locals: { tasks: @expire_warning_tasks } %>
+
+<br><br>
+
+<p><label style="background-color: orangered"><%= t("layout.task.expire_danger_alert") %></label></p>
+
+<%= render partial: 'contents_detail', locals: { tasks: @expire_danger_tasks } %>
+
+
+
+
+
+
+
+
+
+
+
+
