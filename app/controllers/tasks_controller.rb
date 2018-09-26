@@ -42,6 +42,7 @@ class TasksController < ApplicationController
       if params[:task][:label_ids].present?
         # エラー対策何もできていないので一応何かしたい
         labeling_params[:label_ids].each do |label_id|
+          # paramsからラベル（厳密にはTaskとLabelの中間テーブル）を複数保存する
           Labeling.create!(task_id: @task.id, label_id: label_id.to_i) unless label_id.to_i == 0
         end
       end
@@ -53,6 +54,20 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
+      # ラベル関連どう考えても処理ロジックなのでモデルに移行する
+      if params[:task][:label_ids].present?
+        # ラベルの取り外し
+        @task.labeling_labels.ids.each do |has_label_id|
+          active_label = Labeling.where(task_id: @task.id).where(label_id: has_label_id).first
+          # すでにそのTaskに保存されているものかつ、編集画面でチェックの外されているラベルがあったらそれの中間テーブルのレコードを削除する
+          active_label.destroy! unless labeling_params[:label_ids].include?(has_label_id.to_s) || active_label.blank?
+        end
+
+        # ラベルの取り付け
+        labeling_params[:label_ids].each do |label_id|
+          Labeling.create!(task_id: @task.id, label_id: label_id.to_i) unless label_id.to_i == 0 || @task.labeling_labels.ids.include?(label_id.to_i)
+        end
+      end
       redirect_to @task, notice: t("layout.task.notice_update")
     else
       render :edit
