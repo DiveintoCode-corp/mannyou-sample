@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_26_203335) do
+ActiveRecord::Schema.define(version: 2018_09_26_222605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name", limit: 300, default: "", null: false
+    t.text "description", default: "", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "joins", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_joins_on_group_id"
+    t.index ["user_id"], name: "index_joins_on_user_id"
+  end
 
   create_table "labelings", force: :cascade do |t|
     t.bigint "task_id", null: false
@@ -29,6 +47,15 @@ ActiveRecord::Schema.define(version: 2018_09_26_203335) do
     t.index ["user_id"], name: "index_labels_on_user_id"
   end
 
+  create_table "reads", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_reads_on_task_id"
+    t.index ["user_id"], name: "index_reads_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title", limit: 500, default: "", null: false
     t.text "content", default: "", null: false
@@ -38,7 +65,6 @@ ActiveRecord::Schema.define(version: 2018_09_26_203335) do
     t.integer "status", default: 0, null: false
     t.integer "priority", default: 0, null: false
     t.bigint "user_id"
-    t.boolean "read_at", default: false, null: false
     t.index ["status"], name: "index_tasks_on_status"
     t.index ["title"], name: "index_tasks_on_title"
     t.index ["user_id"], name: "index_tasks_on_user_id"

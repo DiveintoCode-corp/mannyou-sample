@@ -32,3 +32,7 @@ end
   labeling = Labeling.new(task_id: Task.all.sample.id, label_id: Label.all.sample.id)
   labeling.save! if Labeling.where(task_id: labeling.task_id).where(label_id: labeling.label_id).blank?
 end
+
+20.times do |i|
+  Group.create!(name: "#group_#{i}_#{[*1..1000].sample}", description: "test-group", user_id: User.all.sample.id)
+end

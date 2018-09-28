@@ -1,0 +1,20 @@
+<%= form_with(model: group, local: true) do |f| %>
+  <% if group.errors.any? %>
+    <div id='error_explanation'>
+      <h2><%= pluralize(group.errors.count, t("layout.views.error_indicate")) %></h2>
+
+      <ul>
+        <% group.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name, t("layout.group.name") %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.label :description, t("layout.group.description") %>
+  <%= f.text_area :description, class: 'form-control' %>
+
+  <div class="actions"><%= f.submit %></div>
+<% end %>
