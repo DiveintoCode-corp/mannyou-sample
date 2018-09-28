@@ -33,7 +33,9 @@ class TasksController < ApplicationController
     @tasks = @tasks.includes(:user).page(params[:page]).per(20)
   end
 
-  def show; end
+  def show
+    Read.create!(user_id: current_user.id, task_id: @task.id) if Read.where(user_id: current_user.id).find_by(task_id: @task.id).blank?
+  end
 
   def new
     @task = Task.new
@@ -93,7 +95,7 @@ class TasksController < ApplicationController
 
   def require_participant
     # 条件式長すぎて意味わかんないのでさっさとスコープ化する。あとincludes結合
-    redirect_to tasks_path unless Task.where(user_id: current_user.groups.map{ |group| group.join_users }.flatten.pluck(:id)).ids.include?(@task.id)
+    redirect_to tasks_path unless Task.where(user_id: current_user.join_groups.map{ |group| group.join_users }.flatten.pluck(:id)).ids.include?(@task.id)
   end
 
   def require_author

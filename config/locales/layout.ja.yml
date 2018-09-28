@@ -26,6 +26,7 @@ ja:
       status_search: "状態検索"
       expire_warning_alert: "もうすぐ期限が切れそうなタスク一覧です"
       expire_danger_alert: "期限が切れてしまったタスク一覧です"
+      read_status: "既読・未読"
     label:
       new: "ラベルを登録する"
       index: "ラベル一覧を見る"

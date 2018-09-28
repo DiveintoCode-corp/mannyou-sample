@@ -10,6 +10,7 @@
     <th><%= t("layout.views.show") %></th>
     <th><%= t("layout.views.edit") %></th>
     <th><%= t("layout.views.destroy") %></th>
+    <th><%= t("layout.task.read_status") %></th>
   </tr>
   </thead>
 
@@ -27,6 +28,14 @@
       <td>
         <%= link_to t("layout.views.destroy"), task, method: :delete,
                     data: { confirm: t("layout.views.confirm_destroy") } %>
+      </td>
+      <td>
+        <label style="background-color: pink">
+          <%= t("layout.views.read") if Read.where(user_id: current_user.id).find_by(task_id: task.id).present? %>
+        </label>
+        <label style="background-color: gray">
+          <%= t("layout.views.not_read") if Read.where(user_id: current_user.id).find_by(task_id: task.id).blank? %>
+        </label>
       </td>
     </tr>
   <% end %>

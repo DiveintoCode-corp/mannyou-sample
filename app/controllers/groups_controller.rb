@@ -8,8 +8,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    # @group.join_users.map{ |user| user.tasks }.flatten
-    @group_tasks = @group.includes([{ joins: :user }, :joins]).join_users.includes(:tasks).map{ |user| user.tasks }.flatten
+    # N+1
+    @group_tasks = @group.join_users.map{ |user| user.tasks }.flatten
   end
 
   def new
