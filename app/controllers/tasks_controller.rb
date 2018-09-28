@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   before_action :require_logged_in
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :require_participant, only: [:show]
+  before_action :require_author, only: [:edit, :update, :destroy]
 
   def index
     # スコープ、書こう！
@@ -31,8 +33,7 @@ class TasksController < ApplicationController
     @tasks = @tasks.includes(:user).page(params[:page]).per(20)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @task = Task.new
@@ -88,6 +89,15 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def require_participant
+    # 条件式長すぎて意味わかんないのでさっさとスコープ化する。あとincludes結合
+    redirect_to tasks_path unless Task.where(user_id: current_user.groups.map{ |group| group.join_users }.flatten.pluck(:id)).ids.include?(@task.id)
+  end
+
+  def require_author
+    redirect_to tasks_path unless @task.user_id == current_user.id
   end
 
   def task_params

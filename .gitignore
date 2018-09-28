@@ -34,3 +34,5 @@
 
 # bundle
 /vendor/bundle
+
+*/.DS_Store

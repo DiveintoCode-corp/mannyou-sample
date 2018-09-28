@@ -5,5 +5,9 @@
 <div class='show-form'><strong><%= t("layout.group.name") %>：</strong><%= @group.name %></div>
 <div class='show-form'><strong><%= t("layout.group.description") %>：</strong><%= @group.description %></div>
 
+<h1><%= t("layout.group.has_tasks") %></h1>
+
+<%= render partial: 'tasks/contents_detail', locals: { tasks: @group_tasks } %>
+
 <%= link_to t("layout.views.edit"), edit_group_path(@group) %> |
 <%= link_to t("layout.views.back"), groups_path %>

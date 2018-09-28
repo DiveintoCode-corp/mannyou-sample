@@ -7,7 +7,10 @@ class GroupsController < ApplicationController
     @groups = Group.limit(50)
   end
 
-  def show; end
+  def show
+    # @group.join_users.map{ |user| user.tasks }.flatten
+    @group_tasks = @group.includes([{ joins: :user }, :joins]).join_users.includes(:tasks).map{ |user| user.tasks }.flatten
+  end
 
   def new
     @group = Group.new

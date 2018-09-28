@@ -45,6 +45,7 @@ ja:
       index_title: "グループ一覧"
       show_title: "グループ詳細"
       edit_title: "グループ編集"
+      has_tasks: "グループの所有しているタスク一覧"
       notice_create: "グループ情報を登録しました"
       notice_update: "グループ情報を更新しました"
       notice_destroy: "グループ情報を削除しました"

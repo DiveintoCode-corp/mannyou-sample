@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   resources :joins, only: [:create, :destroy]
 
   resources :tasks
-  namespace :groups do
-    resources :tasks, only: [:index, :destroy]
-  end
 
   resources :labels, except: [:show]
 
