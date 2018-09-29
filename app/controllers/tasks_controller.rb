@@ -103,7 +103,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :content, :expired_at, :status, :read_at)
+    params.require(:task).permit(:title, :content, :expired_at, :status, :read_at, files: [])
   end
 
   def labeling_params

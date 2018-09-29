@@ -19,6 +19,7 @@ ja:
       expired_at: "終了期限"
       status: "状態"
       priority: "優先順位"
+      file: "ファイル"
       author: "作者"
       sort_expired: "タスクを終了期限順に並び替える"
       sort_priority: "タスクを優先順位順に並び替える"
