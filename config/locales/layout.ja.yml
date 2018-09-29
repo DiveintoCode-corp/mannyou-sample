@@ -75,7 +75,6 @@ ja:
       sign_up: "ユーザー登録"
       login: "ログイン"
       logout: "ログアウト"
-      email: "メールアドレス"
       read: "既読"
       not_read: "未読"
     admin:
@@ -84,3 +83,6 @@ ja:
       edit_user: "管理画面・ユーザー編集"
       new_user: "管理画面・ユーザー登録"
       new: "ユーザーを登録する"
+    user:
+      email: "メールアドレス"
+      image: "アイコン画像"

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   has_many :tasks, dependent: :destroy
   has_many :labels, dependent: :destroy
   has_many :groups, dependent: :destroy
