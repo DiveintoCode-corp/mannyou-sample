@@ -1342,6 +1342,29 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="simple_calendar (vbundled(2.3.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="2" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/spec" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="spring (vbundled(2.0.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="2" />

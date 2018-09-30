@@ -6,12 +6,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/tasks/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tasks/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/locales/layout.ja.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/layout.ja.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,8 +104,9 @@
           <entry key="Gemfile" value="6" />
           <entry key="JPG" value="11" />
           <entry key="_form" value="1" />
+          <entry key="css" value="1" />
           <entry key="env" value="1" />
-          <entry key="erb" value="172" />
+          <entry key="erb" value="175" />
           <entry key="gitignore" value="5" />
           <entry key="html" value="2" />
           <entry key="iml" value="1" />
@@ -125,6 +123,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CSS" value="1" />
           <entry key="Database Element" value="5" />
           <entry key="HTML" value="2" />
           <entry key="IDEA_MODULE" value="1" />
@@ -132,7 +131,7 @@
           <entry key="JavaScript" value="5" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="14" />
-          <entry key="RHTML" value="166" />
+          <entry key="RHTML" value="169" />
           <entry key="Ruby" value="234" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="7" />
@@ -141,8 +140,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Gemfile" value="56" />
-          <entry key="erb" value="2623" />
+          <entry key="Gemfile" value="57" />
+          <entry key="css" value="2" />
+          <entry key="erb" value="2761" />
           <entry key="gitignore" value="130" />
           <entry key="html" value="2" />
           <entry key="js" value="120" />
@@ -153,12 +153,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="CSS" value="2" />
           <entry key="HTML" value="2" />
           <entry key="JavaScript" value="122" />
           <entry key="Markdown" value="505" />
           <entry key="PLAIN_TEXT" value="130" />
-          <entry key="RHTML" value="2621" />
-          <entry key="Ruby" value="5310" />
+          <entry key="RHTML" value="2759" />
+          <entry key="Ruby" value="5311" />
           <entry key="YAML" value="922" />
         </counts>
       </usages-collector>
@@ -168,114 +169,38 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54275095">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/uploaders/image_uploader.rb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" column="63" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="27" selection-start-line="27" selection-end-line="27" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/db/migrate/20180926203335_add_column_read_at_to_tasks.rb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="14" selection-start-column="14" selection-end-column="14" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/db/migrate/20180929185132_add_column_image_to_users.rb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="22" selection-start-line="22" selection-end-line="22" />
-                  <folding>
-                    <element signature="n#t#0;n#!!top" expanded="true" />
-                    <element signature="e#501#523#1#ruby" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="32" selection-start-line="5" selection-end-line="5" selection-end-column="32" />
-                  <folding>
-                    <element signature="n#t#0;n#!!top" expanded="true" />
-                    <element signature="n#t#1;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" selection-start-line="13" selection-end-line="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/config/locales/layout.ja.yml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="192">
-                  <caret line="64" column="10" lean-forward="true" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Gemfile">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/tasks/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="571">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+              <folding>
+                <element signature="n#style#0;n#label#0;n#p#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -303,6 +228,7 @@
       <find>label</find>
       <find>read</find>
       <find>layout.views.email</find>
+      <find>image_tag @user.image.url(:t</find>
     </findStrings>
     <replaceStrings>
       <replace>tasks</replace>
@@ -321,7 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/admin/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/users_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180924113146_create_labelings.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180924112939_create_labels.rb" />
@@ -337,7 +262,6 @@
         <option value="$PROJECT_DIR$/app/helpers/sessions_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/labels/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/models/label.rb" />
-        <option value="$PROJECT_DIR$/app/views/tasks/index.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20180926203335_add_column_read_at_to_tasks.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180926215657_create_groups.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180926221645_create_joins.rb" />
@@ -367,11 +291,13 @@
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/new.html.erb" />
         <option value="$PROJECT_DIR$/config/locales/layout.ja.yml" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180929185132_add_column_image_to_users.rb" />
-        <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/uploaders/image_uploader.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
+        <option value="$PROJECT_DIR$/app/views/tasks/index.html.erb" />
       </list>
     </option>
   </component>
@@ -497,7 +423,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="gem&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/Gemfile&#10;read&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/models/read.rb&#10;yml&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/locales/layout.ja.yml&#10;seed&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/seeds.rb&#10;tasks&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;task&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;group&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/groups_controller.rb&#10;index&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/groups/index.html.erb&#10;layou&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/locales/layout.ja.yml&#10;sch&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/schema.rb&#10;config/application.rb&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/application.rb&#10;route&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/routes.rb&#10;label&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/models/label.rb&#10;sche&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/schema.rb&#10;application&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/layouts/application.html.erb&#10;show&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/tasks/show.html.erb&#10;new&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/tasks/new.html.erb&#10;user&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/models/user.rb&#10;contro&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/admin/users_controller.rb&#10;schem&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/schema.rb&#10;users&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/users_controller.rb&#10;session&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/sessions_controller.rb&#10;applicati&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/layouts/application.html.erb&#10;users_co&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/users_controller.rb&#10;contr&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;controller&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;log&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/log&#10;data&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/database.yml&#10;controll&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;form&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/tasks/_form.html.erb&#10;co&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;con&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;cont&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;inde&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/tasks/index.html.erb&#10;migra&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/migrate&#10;idea&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/.idea&#10;ntrollers/tasks_controller.rb&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;model&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/models" />
+    <property name="SearchEverywhereHistoryKey" value="appli&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/assets/stylesheets/application.css&#10;gem&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/Gemfile&#10;read&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/models/read.rb&#10;yml&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/locales/layout.ja.yml&#10;seed&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/seeds.rb&#10;tasks&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;task&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;group&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/groups_controller.rb&#10;index&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/groups/index.html.erb&#10;layou&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/locales/layout.ja.yml&#10;sch&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/schema.rb&#10;config/application.rb&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/application.rb&#10;route&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/routes.rb&#10;label&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/models/label.rb&#10;sche&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/schema.rb&#10;application&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/layouts/application.html.erb&#10;show&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/tasks/show.html.erb&#10;new&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/tasks/new.html.erb&#10;user&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/models/user.rb&#10;contro&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/admin/users_controller.rb&#10;schem&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/schema.rb&#10;users&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/users_controller.rb&#10;session&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/sessions_controller.rb&#10;applicati&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/layouts/application.html.erb&#10;users_co&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/users_controller.rb&#10;contr&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;controller&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;log&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/log&#10;data&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/config/database.yml&#10;controll&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;form&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/tasks/_form.html.erb&#10;co&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;con&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;cont&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;inde&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/views/tasks/index.html.erb&#10;migra&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/db/migrate&#10;idea&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/.idea&#10;ntrollers/tasks_controller.rb&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/controllers/tasks_controller.rb&#10;model&#9;FILE&#9;file:///Users/shibatadaiki/RubymineProjects/mannyou-dev/app/models" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -674,12 +600,12 @@
       <workItem from="1538143402750" duration="11720000" />
       <workItem from="1538212208116" duration="205000" />
       <workItem from="1538214425701" duration="524000" />
-      <workItem from="1538239911004" duration="6697000" />
+      <workItem from="1538239911004" duration="9733000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159138000" />
+    <option name="totallyTimeSpent" value="162174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-521" width="1920" height="1080" extended-state="0" />
@@ -736,13 +662,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180913042811_add_title_and_status_index_to_tasks.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20180912032402_add_column_status_to_tasks.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -948,24 +867,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" selection-start-line="23" selection-end-line="23" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/group.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="12" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
@@ -1033,6 +938,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="54" lean-forward="true" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/uploaders/image_uploader.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180926203335_add_column_read_at_to_tasks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180929185132_add_column_image_to_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1044,63 +984,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="32" selection-start-line="5" selection-end-line="5" selection-end-column="32" />
-          <folding>
-            <element signature="n#t#0;n#!!top" expanded="true" />
-            <element signature="n#t#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180929185132_add_column_image_to_users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180926203335_add_column_read_at_to_tasks.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/uploaders/image_uploader.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="63" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
+        <state relative-caret-position="285">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/layout.ja.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
-          <caret line="64" column="10" lean-forward="true" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tasks/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#p#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -36,6 +36,16 @@
 
 <br><br>
 
+<%= month_calendar do |date| %>
+  <%= date %>
+
+  <% @tasks.where(expired_at: date).each do |task| %>
+    <p style="color: orangered">期限タスク：<%= task.title %></p>
+  <% end %>
+<% end %>
+
+<br><br>
+
 <p><label style="background-color: orange"><%= t("layout.task.expire_warning_alert") %></label></p>
 
 <%= render partial: 'contents_detail', locals: { tasks: @expire_warning_tasks } %>

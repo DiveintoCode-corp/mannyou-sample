@@ -3,7 +3,7 @@
 <p><%= t("layout.user.email") %>: <%= @user.email %></p>
 
 <p><%= t("layout.user.image") %></p>
-<%= image_tag @user.image.url(:thumb) %>
+<%= image_tag @user.image.url(:thumb) if @user.image.url %>
 
 <%= link_to t("layout.task.new"), new_task_path %>
 <%= link_to t("layout.task.index"), tasks_path %>
