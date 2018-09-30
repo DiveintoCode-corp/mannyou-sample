@@ -40,6 +40,7 @@ ja:
       notice_update: "ラベル情報を更新しました"
       notice_destroy: "ラベル情報を削除しました"
       search: "ラベル検索"
+      chat_index: "デフォルトラベルの使用頻度"
     group:
       new: "グループを登録する"
       index: "グループ一覧を見る"
