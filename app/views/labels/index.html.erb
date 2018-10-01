@@ -27,7 +27,11 @@
   </tbody>
 </table>
 
-<br>
+<br><br>
+
+<h1><%= t("layout.label.chat_index") %></h1>
+
+<%= column_chart @chat_labels %>
 
 <%= link_to t("layout.task.new"), new_task_path %>
 <%= link_to t("layout.task.index"), tasks_path %>

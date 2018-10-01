@@ -11,6 +11,11 @@
   <div style="margin-bottom: 10px"><label style="background-color: aquamarine"><%= label.name %></label></div>
 <% end %>
 
+<% if @task.files.attached? %>
+  <% @task.files.each do |file| %>
+    <%= link_to file.blob.filename, file %><br>
+  <% end %>
+<% end %>
 
 <%= link_to t("layout.views.edit"), edit_task_path(@task) %> |
 <%= link_to t("layout.views.back"), tasks_path %>

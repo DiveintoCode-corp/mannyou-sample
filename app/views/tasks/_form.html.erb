@@ -14,11 +14,13 @@
   <%= f.label :title, t("layout.task.title") %>
   <%= f.text_field :title, class: 'form-control' %>
   <%= f.label :content, t("layout.task.content") %>
-  <%= f.text_field :content, class: 'form-control' %>
+  <%= f.text_area :content, class: 'form-control' %>
   <%= f.label :expired_at, t("layout.task.expired_at") %>
   <%= f.date_select :expired_at, class: 'form-control', value: Time.now.strftime("%Y-%m-%d") %>
   <%= f.label :status, t("layout.task.status") %>
   <%= f.select :status, Task.statuses.keys, class: 'form-control' %>
+  <%= f.label :status, t("layout.task.file") %>
+  <%= f.file_field :files, multiple: true %>
   <br>
 
   <% Label.can_use(current_user).each do |label| %>

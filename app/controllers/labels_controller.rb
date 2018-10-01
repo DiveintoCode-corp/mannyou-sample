@@ -1,9 +1,16 @@
 class LabelsController < ApplicationController
   before_action :require_logged_in
   before_action :set_label, only: [:edit, :update, :destroy]
+  before_action :require_author, only: [:edit, :update, :destroy]
 
   def index
     @labels = Label.where(user_id: current_user.id)
+
+    @chat_labels = []
+    Label.where(user_id: nil).each do |label|
+      chat_label = [label.name, Labeling.where(label_id: label.id).count]
+      @chat_labels << chat_label
+    end
   end
 
   def new
@@ -38,6 +45,10 @@ class LabelsController < ApplicationController
 
   def set_label
     @label = Label.find(params[:id])
+  end
+
+  def require_author
+    redirect_to labels_path unless @label.user_id == current_user.id
   end
 
   def label_params

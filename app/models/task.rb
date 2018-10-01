@@ -1,7 +1,11 @@
 class Task < ApplicationRecord
   belongs_to :user
+
   has_many :labelings, dependent: :destroy
   has_many :labeling_labels, through: :labelings, source: :label
+  has_many :reads, dependent: :destroy
+  has_many :read_users, through: :reads, source: :user
+  has_many_attached :files
 
   accepts_nested_attributes_for :labelings, allow_destroy: true, reject_if: :all_blank
 

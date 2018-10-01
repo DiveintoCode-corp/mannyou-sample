@@ -1,6 +1,14 @@
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   has_many :tasks, dependent: :destroy
   has_many :labels, dependent: :destroy
+  has_many :groups, dependent: :destroy
+
+  has_many :joins, dependent: :destroy
+  has_many :join_groups, through: :joins, source: :group
+  has_many :reads, dependent: :destroy
+  has_many :read_tasks, through: :reads, source: :task
 
   before_update :admin_check_existence_update
   before_destroy :admin_check_existence_destroy
