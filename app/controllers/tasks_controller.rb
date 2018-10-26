@@ -9,8 +9,12 @@ class TasksController < ApplicationController
 
     # 変数代入
     @tasks = current_user.tasks.limit(50)
-    @expire_warning_tasks = current_user.tasks.limit(50).where(status: [0, 1]).where(expired_at: Time.zone.today..(Time.zone.today + 7)).order(:expired_at)
-    @expire_danger_tasks = current_user.tasks.limit(50).where(status: [0, 1]).where("expired_at < ?", Time.zone.today).order(:expired_at)
+    @expire_warning_tasks = current_user.tasks.limit(50).where(status: [0, 1]).
+                                                         where(expired_at: Time.zone.today..(Time.zone.today + 7)).
+                                                         order(:expired_at)
+    @expire_danger_tasks = current_user.tasks.limit(50).where(status: [0, 1]).
+                                                        where("expired_at < ?", Time.zone.today).
+                                                        order(:expired_at)
 
     # 検索（絞り込み。見本なのでそのまんまに書いているが、わかりづらい上にファットコントローラなのでモデルに移してリファクタすべき）
     if params[:task].present? && params[:task][:search] == "true"
