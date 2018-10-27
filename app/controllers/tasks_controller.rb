@@ -5,40 +5,29 @@ class TasksController < ApplicationController
   before_action :require_author, only: [:edit, :update, :destroy]
 
   def index
-    # スコープ、書こう！
+    # 変数代入（わかりやすさを重視したindexアクションのコードになっているが、ややファットなので検索とか並び替えはメソッド化して他に移す方が良いかも）
+    @tasks = current_user.tasks
+    @expire_warning_tasks = @tasks.expire_warning.order(:expired_at).limit(50)
+    @expire_danger_tasks = @tasks.expire_danger.order(:expired_at).limit(50)
 
-    # 変数代入
-    @tasks = current_user.tasks.limit(50)
-    @expire_warning_tasks = current_user.tasks.limit(50).where(status: [0, 1]).
-                                                         where(expired_at: Time.zone.today..(Time.zone.today + 7)).
-                                                         order(:expired_at)
-    @expire_danger_tasks = current_user.tasks.limit(50).where(status: [0, 1]).
-                                                        where("expired_at < ?", Time.zone.today).
-                                                        order(:expired_at)
-
-    # 検索（絞り込み。見本なのでそのまんまに書いているが、わかりづらい上にファットコントローラなのでモデルに移してリファクタすべき）
-    if params[:task].present? && params[:task][:search] == "true"
-      @tasks = @tasks.where("title LIKE ?", "%#{ params[:task][:title] }%") if params[:task][:title].present?
-      @tasks = @tasks.where(status: params[:task][:status]) if params[:task][:status].present?
-      # これがラベル検索。みづらい。
-      unless params[:task][:label_id].blank? && params[:task][:label_id].to_i.zero?
-        @tasks = @tasks.where(id: Labeling.where(label_id: params[:task][:label_id].to_i).pluck(:task_id))
-      end
+    # 検索（絞り込み）
+    if params[:task].present?
+      @tasks = @tasks.title_search(params[:task][:title]) if params[:task][:title].present?
+      @tasks = @tasks.status_search(params[:task][:status]) if params[:task][:status].present?
+      # ラベル検索
+      @tasks = @tasks.label_search(params[:task][:label_id].to_i) if label_search_require?
     end
 
     # 並び替え
-    if sort_expired?
-      @tasks = @tasks.order(:expired_at)
-    elsif params[:sort_priority] == "true"
-      @tasks = @tasks.order(priority: "DESC")
-    end
+    @tasks = @tasks.order(:expired_at) if sort_expired?
+    @tasks = @tasks.order(priority: "DESC") if params[:sort_priority] == "true"
 
     # ページネーション
     @tasks = @tasks.includes(:user).page(params[:page]).per(20)
   end
 
   def show
-    Read.create!(user_id: current_user.id, task_id: @task.id) if Read.where(user_id: current_user.id).find_by(task_id: @task.id).blank?
+    Read.create!(user_id: current_user.id, task_id: @task.id) unless Read.already?(current_user, @task)
   end
 
   def new
@@ -50,45 +39,44 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.build(task_params)
 
-    if @task.save
-      if params[:task][:label_ids].present?
-        # エラー対策何もできていないので一応何かしたい
-        labeling_params[:label_ids].each do |label_id|
-          # paramsからラベル（厳密にはTaskとLabelの中間テーブル）を複数保存する
-          Labeling.create!(task_id: @task.id, label_id: label_id.to_i) unless label_id.to_i == 0
-        end
+    # タスクと、そのラベリングを同時に保存し、なんらかの理由でラベリングに失敗したらタスクも保存しない
+    if @task.valid?
+      ActiveRecord::Base.transaction do
+        @task.save!
+        Labeling.tasks!(labeling_params[:label_ids], @task) if params[:task][:label_ids].present?
       end
       redirect_to @task, notice: t("layout.task.notice_create")
     else
+      flash.now[:alert] = t("layout.task.not_create")
       render :new
     end
+  rescue
+    flash.now[:alert] = t("layout.task.not_labeling")
+    render :new
   end
 
   def update
-    if @task.update(task_params)
-      # ラベル関連どう考えても処理ロジックなのでモデルに移行する
-      if params[:task][:label_ids].present?
-        # ラベルの取り外し
-        @task.labeling_labels.ids.each do |has_label_id|
-          active_label = Labeling.where(task_id: @task.id).where(label_id: has_label_id).first
-          # すでにそのTaskに保存されているものかつ、編集画面でチェックの外されているラベルがあったらそれの中間テーブルのレコードを削除する
-          active_label.destroy! unless labeling_params[:label_ids].include?(has_label_id.to_s) || active_label.blank?
-        end
-
-        # ラベルの取り付け
-        labeling_params[:label_ids].each do |label_id|
-          Labeling.create!(task_id: @task.id, label_id: label_id.to_i) unless label_id.to_i == 0 || @task.labeling_labels.ids.include?(label_id.to_i)
-        end
+    if params[:task][:label_ids].present?
+      ActiveRecord::Base.transaction do
+        @task.update!(task_params)
+        Labeling.peel_off!(@task.labeling_labels) # ラベルの取り外し
+        Labeling.paste_tasks!(labeling_params[:label_ids], @task) # ラベルの取り付け
       end
       redirect_to tasks_path, notice: t("layout.task.notice_update")
+    elsif params[:task][:label_ids].blank? && @task.update(task_params)
+      redirect_to tasks_path, notice: t("layout.task.notice_update")
     else
+      flash.now[:alert] = t("layout.task.not_update")
       render :edit
     end
+  rescue
+    flash.now[:alert] = t("layout.task.not_labeling")
+    render :edit
   end
 
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: t("layout.task.notice_destroy")
+    redirect_to tasks_path, notice: t("layout.task.notice_destroy")
   end
 
   private
@@ -99,7 +87,7 @@ class TasksController < ApplicationController
 
   def require_participant
     # 条件式長すぎて意味わかんないのでさっさとスコープ化する。あとincludes結合
-    redirect_to tasks_path unless Task.where(user_id: current_user.join_groups.map{ |group| group.join_users }.flatten.pluck(:id)).ids.include?(@task.id)
+    redirect_to tasks_path unless Task.possessed_groups_of(current_user).ids.include?(@task.id)
   end
 
   def require_author
@@ -117,6 +105,10 @@ class TasksController < ApplicationController
   def sort_expired?
     params[:sort_expired] == "true" || (params[:task].present? && params[:task][:sort_expired] == "true")
   end
+
+  def label_search_require?
+    params[:task][:label_id].present? && !params[:task][:label_id].to_i.zero?
+  end
 end
 
 
@@ -127,7 +119,7 @@ end
 # end
 
 
-# if params[:task].present? && params[:task][:search] == "true"
+# if params[:task].present?
 #   # モデルに移すべき・・・かな？
 #   @tasks.where("title LIKE ?", "%#{ params[:task][:title] }%") if params[:task][:title].present?
 #   @tasks.where(status: "%#{ params[:task][:status] }%") if params[:task][:status].present?

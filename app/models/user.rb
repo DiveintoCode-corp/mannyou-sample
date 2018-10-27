@@ -25,6 +25,7 @@ class User < ApplicationRecord
   private
 
   def admin_check_existence_update
+    # 変更後の自身(self)のインスタンスのadminの値はfalseになるが、DBに登録されている自身のadminの値はtrueの場合（自身をadminで無くそうとしている場合）条件を満たす
     raise "application_without_administrator" if (self.admin == false && User.where(admin: true).count == 1) && self == User.find_by(admin: true)
   end
 

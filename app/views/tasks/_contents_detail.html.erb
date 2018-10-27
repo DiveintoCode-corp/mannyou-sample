@@ -31,10 +31,10 @@
         </td>
         <td>
           <label style="background-color: pink">
-            <%= t("layout.views.read") if Read.where(user_id: current_user.id).find_by(task_id: task.id).present? %>
+            <%= t("layout.views.read") if Read.already?(current_user, task) %>
           </label>
           <label style="background-color: gray">
-            <%= t("layout.views.not_read") if Read.where(user_id: current_user.id).find_by(task_id: task.id).blank? %>
+            <%= t("layout.views.not_read") unless Read.already?(current_user, task) %>
           </label>
         </td>
       </tr>

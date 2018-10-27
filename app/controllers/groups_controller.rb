@@ -4,12 +4,11 @@ class GroupsController < ApplicationController
   before_action :require_author, only: [:edit, :update, :destroy]
 
   def index
-    @groups = Group.limit(50)
+    @groups = Group.includes(:joins).limit(50)
   end
 
   def show
-    # N+1
-    @group_tasks = @group.join_users.map{ |user| user.tasks }.flatten
+    @group_tasks = @group.has_tasks.limit(50)
   end
 
   def new
@@ -49,7 +48,7 @@ class GroupsController < ApplicationController
   end
 
   def require_participant
-    redirect_to groups_path if Join.where(user_id: current_user.id).find_by(group_id: @group.id).blank?
+    redirect_to groups_path if Join.to_match(current_user, @group).blank?
   end
 
   def require_author

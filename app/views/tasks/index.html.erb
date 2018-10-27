@@ -12,8 +12,6 @@
   <%= f.label :label_id, t("layout.label.search") %>
   <%= f.select :label_id, Label.can_use(current_user).map{|l| [l.name, l.id]}, include_blank: true %>
 
-  <%= f.hidden_field :search, value: 'true' %>
-
   <%= f.label :status_search, t("layout.views.search_sort_expired") %>
   <%= f.radio_button :sort_expired, 'true' %>
 
@@ -39,7 +37,7 @@
 <%= month_calendar do |date| %>
   <%= date %>
 
-  <% @tasks.where(expired_at: date).each do |task| %>
+  <% @tasks.due_expire(date).each do |task| %>
     <p style="color: orangered">期限タスク：<%= task.title %></p>
   <% end %>
 <% end %>
@@ -47,13 +45,11 @@
 <br><br>
 
 <p><label style="background-color: orange"><%= t("layout.task.expire_warning_alert") %></label></p>
-
 <%= render partial: 'contents_detail', locals: { tasks: @expire_warning_tasks } %>
 
 <br><br>
 
 <p><label style="background-color: orangered"><%= t("layout.task.expire_danger_alert") %></label></p>
-
 <%= render partial: 'contents_detail', locals: { tasks: @expire_danger_tasks } %>
 
 
