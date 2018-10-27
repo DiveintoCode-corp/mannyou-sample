@@ -3,3 +3,7 @@
 <%= render 'form', task: @task %>
 
 <%= link_to t("layout.views.back"), tasks_path %>
+
+<%= javascript_tag do %>
+  window.label_ids = <%= raw @task.labeling_labels.ids.to_json %>;
+<% end %>

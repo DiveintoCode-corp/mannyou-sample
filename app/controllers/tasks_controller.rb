@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   def index
     # 変数代入（わかりやすさを重視したindexアクションのコードになっているが、ややファットなので検索とか並び替えはメソッド化して他に移す方が良いかも）
     @tasks = current_user.tasks
+    @read_task_ids = current_user.reads.pluck(:task_id)
     @expire_warning_tasks = @tasks.expire_warning.order(:expired_at).limit(50)
     @expire_danger_tasks = @tasks.expire_danger.order(:expired_at).limit(50)
 

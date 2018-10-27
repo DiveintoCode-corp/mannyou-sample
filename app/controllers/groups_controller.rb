@@ -8,7 +8,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group_tasks = @group.has_tasks.limit(50)
+    @group_tasks = @group.has_tasks.slice(0, 50)
+    @read_task_ids = current_user.reads.pluck(:task_id)
   end
 
   def new

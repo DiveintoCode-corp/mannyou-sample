@@ -37,6 +37,7 @@ ja:
       new_title: "ラベル登録"
       edit_title: "ラベル編集"
       index_title: "ラベル一覧"
+      my_title: "自作ラベル一覧"
       name: "ラベル名"
       default: "デフォルトラベルか？"
       notice_create: "ラベル情報を登録しました"

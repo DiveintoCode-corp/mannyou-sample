@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t("layout.label.index_title") %></h1>
+<h1><%= t("layout.label.my_title") %></h1>
 
 <table>
   <thead>
   <tr>
     <th><%= t("layout.label.name") %></th>
-    <th><%= t("layout.label.default") %></th>
     <th><%= t("layout.views.edit") %></th>
     <th><%= t("layout.views.destroy") %></th>
   </tr>
@@ -16,7 +15,6 @@
   <% @labels.each do |label| %>
     <tr>
       <td><%= label.name %></td>
-      <td><%= label.default %></td>
       <td><%= link_to t("layout.views.edit"), edit_label_path(label) %></td>
       <td>
         <%= link_to t("layout.views.destroy"), label, method: :delete,
@@ -33,6 +31,9 @@
 
 <%= column_chart @chat_labels %>
 
+<%= link_to t("layout.group.new"), new_group_path %>
+<%= link_to t("layout.group.index"), groups_path %>
+<br>
 <%= link_to t("layout.task.new"), new_task_path %>
 <%= link_to t("layout.task.index"), tasks_path %>
 <br>

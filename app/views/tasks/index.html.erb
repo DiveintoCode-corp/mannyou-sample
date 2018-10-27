@@ -19,7 +19,7 @@
   <br><br>
 <% end %>
 
-<%= render partial: 'contents_detail', locals: { tasks: @tasks } %>
+<%= render partial: 'contents_detail', locals: { tasks: @tasks, read_task_ids: @read_task_ids } %>
 
 <br>
 
@@ -29,6 +29,9 @@
 <br>
 <%= link_to t("layout.label.new"), new_label_path %>
 <%= link_to t("layout.label.index"), labels_path %>
+<br>
+<%= link_to t("layout.group.new"), new_group_path %>
+<%= link_to t("layout.group.index"), groups_path %>
 
 <%= paginate @tasks %>
 
@@ -37,6 +40,7 @@
 <%= month_calendar do |date| %>
   <%= date %>
 
+  <!-- N+1起きているが、クエリ発行回数はカレンダー1月分の30回で固定されており、さほど影響ないので一旦放置 -->
   <% @tasks.due_expire(date).each do |task| %>
     <p style="color: orangered">期限タスク：<%= task.title %></p>
   <% end %>
@@ -45,12 +49,12 @@
 <br><br>
 
 <p><label style="background-color: orange"><%= t("layout.task.expire_warning_alert") %></label></p>
-<%= render partial: 'contents_detail', locals: { tasks: @expire_warning_tasks } %>
+<%= render partial: 'contents_detail', locals: { tasks: @expire_warning_tasks, read_task_ids: @read_task_ids } %>
 
 <br><br>
 
 <p><label style="background-color: orangered"><%= t("layout.task.expire_danger_alert") %></label></p>
-<%= render partial: 'contents_detail', locals: { tasks: @expire_danger_tasks } %>
+<%= render partial: 'contents_detail', locals: { tasks: @expire_danger_tasks, read_task_ids: @read_task_ids } %>
 
 
 
