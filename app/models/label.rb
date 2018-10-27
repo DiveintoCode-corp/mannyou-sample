@@ -7,8 +7,8 @@ class Label < ApplicationRecord
 
   def self.chat_date_extraction
     chat_labels = []
-    where(user_id: nil).each do |label|
-      chat_label = [label.name, Labeling.where(label_id: label.id).count]
+    includes(:labelings).where(user_id: nil).each do |label|
+      chat_label = [label.name, label.labelings.count]
       chat_labels << chat_label
     end
     chat_labels
