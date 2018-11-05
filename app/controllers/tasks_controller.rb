@@ -22,6 +22,7 @@ class TasksController < ApplicationController
     # 並び替え
     @tasks = @tasks.order(:expired_at) if sort_expired?
     @tasks = @tasks.order(priority: "DESC") if params[:sort_priority] == "true"
+    @tasks = @tasks.order(created_at: "DESC") unless sort_expired? || params[:sort_priority] == "true"
 
     # ページネーション
     @tasks = @tasks.includes(:user).page(params[:page]).per(20)
@@ -87,8 +88,7 @@ class TasksController < ApplicationController
   end
 
   def require_participant
-    # 条件式長すぎて意味わかんないのでさっさとスコープ化する。あとincludes結合
-    redirect_to tasks_path unless Task.possessed_groups_of(current_user).ids.include?(@task.id)
+    redirect_to tasks_path unless @task.user_id == current_user.id || Group.has_this_task?(current_user, @task)
   end
 
   def require_author

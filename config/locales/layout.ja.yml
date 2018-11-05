@@ -1,6 +1,7 @@
 ja:
   layout:
     session:
+      submit: "ログインする"
       notice_fail: "ログインに失敗しました"
       notice_logout: "ログアウトしました"
       require_login: "ログインしてください"

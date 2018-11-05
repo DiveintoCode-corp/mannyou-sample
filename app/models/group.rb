@@ -7,4 +7,8 @@ class Group < ApplicationRecord
   def has_tasks
     join_users.includes(:tasks).map(&:tasks).flatten
   end
+
+  def has_this_task?(user, task)
+    Task.possessed_groups_of(user).ids.include?(task.id)
+  end
 end
