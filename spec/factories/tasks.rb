@@ -10,4 +10,12 @@ FactoryBot.define do
     status { Task::statuses["未着手"] }
     user
   end
+
+  factory :another_task, class: Task do
+    title { 'another_title' }
+    content { 'another_content' }
+    expired_at { Time.zone.today + 10 }
+    status { Task::statuses["完了"] }
+    user
+  end
 end

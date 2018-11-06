@@ -11,9 +11,14 @@ RSpec.feature "タスク管理機能", type: :feature do
     FactoryBot.create(:task, content: 'ponponpon', expired_at: Time.zone.today + 10, status: Task::statuses["未着手"], priority: Task::priorities["高"], user: user)
     FactoryBot.create(:task, content: 'mofmofmofmof', expired_at: Time.zone.today + 5, status: Task::statuses["着手中"], priority: Task::priorities["中"], user: user)
     FactoryBot.create(:task, content: 'samplesample', expired_at: Time.zone.today + 1, status: Task::statuses["完了"], user: user)
+    # 別のユーザーが作成したタスク
+    FactoryBot.create(:another_task, user: FactoryBot.create(:another_user))
   end
 
   feature "個々のタスク機能のテスト" do
+    # background(before)節は、feature内の各テストで事前にしておいてほしい処理を書く
+    # ここではあらかじめログイン処理をしておいてほしい（ログイン処理をしていないとそもそもタスク一覧に行けない）ため
+    # ログイン処理を各テストの前にしておくべき共通処理として書いておく
     background do
       # トップページを開く
       visit root_path
@@ -131,6 +136,19 @@ RSpec.feature "タスク管理機能", type: :feature do
       click_link 'タスクを優先順位順に並び替える'
       all('tr td')[16].click_link '詳細'
       expect(page).to have_content 'mofmofmofmof'
+    end
+
+    scenario "ログインしているユーザー以外が作成したタスクは表示されない" do
+      visit tasks_path
+      expect(page).to_not have_content 'another'
+    end
+
+    scenario "ログアウトしていたらタスク一覧に飛ぼうとしてもログインページにリダイレクトする" do
+      click_link 'Logout'
+
+      visit tasks_path
+      expect(page).to have_content 'ログインしてください'
+      expect(page).to_not have_content 'タスク一覧'
     end
   end
 end

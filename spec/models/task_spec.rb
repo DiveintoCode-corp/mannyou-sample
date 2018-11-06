@@ -46,7 +46,7 @@ RSpec.describe Task, type: :model do
 
     it "状態検索で「着手中」（indexの'1'）を選択すると、「着手中」のTaskを二つ返す" do
       expect(Task.status_search(Task::statuses["着手中"]).count).to eq 2
-      expect(Task.status_search(1).pluck(:status)).to eq ["着手中", "着手中"]
+      expect(Task.status_search(Task::statuses["着手中"]).pluck(:status)).to eq ["着手中", "着手中"]
     end
   end
 end
