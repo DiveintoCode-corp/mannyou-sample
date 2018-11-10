@@ -81,6 +81,8 @@ ja:
       sign_up: "ユーザー登録"
       login: "ログイン"
       logout: "ログアウト"
+      profile: "プロフィール"
+      admin_dashboard: "管理画面"
       read: "既読"
       not_read: "未読"
     admin:

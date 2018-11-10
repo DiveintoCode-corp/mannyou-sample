@@ -144,7 +144,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     end
 
     scenario "ログアウトしていたらタスク一覧に飛ぼうとしてもログインページにリダイレクトする" do
-      click_link 'Logout'
+      click_link 'ログアウト'
 
       visit tasks_path
       expect(page).to have_content 'ログインしてください'

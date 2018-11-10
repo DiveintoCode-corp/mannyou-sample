@@ -6,11 +6,11 @@ class Labeling < ApplicationRecord
 
   scope :exists_in_combination, -> (label_id, task_id) { where(task_id: task_id).find_by(label_id: label_id) }
 
-  def self.peel_off!(labels)
+  def self.peel_off!(labels, task, checked_label_ids)
     labels.ids.each do |has_label_id|
-      active_label = exists_in_combination(has_label_id, @task.id)
+      active_label = exists_in_combination(has_label_id, task.id)
       # すでにそのTaskに保存されているものかつ、編集画面でチェックの外されているラベルがあったらそれの中間テーブルのレコードを削除する
-      active_label.destroy! unless labeling_params[:label_ids].include?(has_label_id.to_s) || active_label.blank?
+      active_label.destroy! unless checked_label_ids.include?(has_label_id.to_s) || active_label.blank?
     end
   end
 

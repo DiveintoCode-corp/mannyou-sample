@@ -1,4 +1,6 @@
 User.create!(name: "tester_admin", email: "test_admin_#{[*1..1000].sample}@gmail.com", password: "199392", admin: true)
+User.create!(name: "tester_01", email: "tester_#{[*1..1000].sample}@gmail.com", password: "199392")
+User.create!(name: "tester_02", email: "tester_#{[*1..1000].sample}@gmail.com", password: "199392")
 
 10.times do |i|
   User.create!(name: "tester_#{i}",
@@ -34,5 +36,9 @@ end
 end
 
 20.times do |i|
-  Group.create!(name: "#group_#{i}_#{[*1..1000].sample}", description: "test-group", user_id: User.all.sample.id)
+  user_id = User.all.sample.id
+  joined_user_id = (User.ids - [user_id]).sample
+  group = Group.create!(name: "#group_#{i}_#{[*1..1000].sample}", description: "test-group", user_id: user_id)
+  Join.create!(group_id: group.id, user_id: user_id)
+  Join.create!(group_id: group.id, user_id: joined_user_id)
 end

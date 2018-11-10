@@ -61,7 +61,7 @@ class TasksController < ApplicationController
     if params[:task][:label_ids].present?
       ActiveRecord::Base.transaction do
         @task.update!(task_params)
-        Labeling.peel_off!(@task.labeling_labels) # ラベルの取り外し
+        Labeling.peel_off!(@task.labeling_labels, @task, labeling_params[:label_ids]) # ラベルの取り外し
         Labeling.paste_tasks!(labeling_params[:label_ids], @task) # ラベルの取り付け
       end
       redirect_to tasks_path, notice: t("layout.task.notice_update")

@@ -17,7 +17,7 @@ RSpec.feature "ユーザー機能", type: :feature do
     end
 
     scenario "ユーザー作成のテスト" do
-      click_link 'Logout'
+      click_link 'ログアウト'
       visit new_user_path
 
       fill_in '名前', with: 'totono'
@@ -120,7 +120,7 @@ RSpec.feature "ユーザー機能", type: :feature do
     end
 
     scenario "ログインしていない状態で管理画面に入ろうとしたらエラーを出す" do
-      click_link 'Logout'
+      click_link 'ログアウト'
 
       visit admin_users_path
       expect(page).to have_content 'RuntimeError'
@@ -128,7 +128,7 @@ RSpec.feature "ユーザー機能", type: :feature do
     end
 
     scenario "管理者ユーザー以外が管理画面に入ろうとしたらエラーを出す" do
-      click_link 'Logout'
+      click_link 'ログアウト'
 
       fill_in 'Email', with: 'shibata@example.com'
       fill_in 'Password', with: '123456'
