@@ -1,0 +1,15 @@
+<h1><%= @user.name %></h1>
+
+<p><%= t("layout.user.email") %>: <%= @user.email %></p>
+
+<p><%= t("layout.user.image") %></p>
+<%= image_tag @user.image.url(:thumb) if @user.image.url %>
+
+<%= link_to t("layout.group.new"), new_group_path %>
+<%= link_to t("layout.group.index"), groups_path %>
+<br>
+<%= link_to t("layout.task.new"), new_task_path %>
+<%= link_to t("layout.task.index"), tasks_path %>
+<br>
+<%= link_to t("layout.label.new"), new_label_path %>
+<%= link_to t("layout.label.index"), labels_path %>

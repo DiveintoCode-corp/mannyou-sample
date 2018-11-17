@@ -1,0 +1,12 @@
+<h1>mannyou-devからのお知らせ</h1>
+
+<p>このメールは対象者の方に向けて週に一度配信されます</p>
+
+
+<h4><%= @user.name %>様の、期限が切れそうなタスクの一覧です。</h4>
+
+<br><br>
+
+<% @tasks.each do |task| %>
+  <p>タスク名: <%= task.title %>　/　期限：<%= task.expired_at %></p><br>
+<% end %>

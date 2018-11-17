@@ -2,7 +2,18 @@ ja:
   activerecord:
     models:
       task: "タスク"
+      user: "ユーザー"
     attributes:
       task:
         title: "タイトル"
         content: "タスク詳細"
+        status: "状態"
+        priorities: "優先順位"
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認）"
+      label:
+        name: "ラベル名"
+        default: "デフォルト判定"

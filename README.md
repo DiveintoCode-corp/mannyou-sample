@@ -26,6 +26,8 @@
   - password: string
   - admin: boolean
   
+  - image: string
+  
 - Taskモデル
   - title: string
   - content: text
@@ -36,9 +38,38 @@
   
 - Labelモデル
   - name: title
-  - default_flg: boolean
+  - default: boolean
   - user_id: integer
   
 - Labelingモデル
   - label_id: integer
   - task_id: integer
+  
+
+=============オプション要件追記=================
+
+  
+- groupモデル
+  - name: string
+  - description: text
+  - user_id: integer
+
+- joinモデル
+  - user_id: integer
+  - group_id: integer
+
+- readモデル
+  - user_id: integer
+  - task_id: integer
+
+=============SGさんメモ=================
+
+ database_cleaner（テスト駆動開発について）
+ 
+ 一つのクラスでは一つのことをする
+ 一つのメソッドでは一つのことをする
+ 単一責任の法則
+ お金の状態管理と、お金の表示の機能は分ける
+ 処理に名前をつける
+ 一つ一つつける
+ if文を書き始めたら疑う

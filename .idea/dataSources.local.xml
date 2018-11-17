@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="postgres@localhost" uuid="739c03e0-4967-4d1b-b569-8c618b016a2f">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="POSTGRES" exact-version="0.0" />
+      <introspection-schemas>mannyou-dev_development:@</introspection-schemas>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,43 @@
+<table>
+  <thead>
+  <tr>
+    <th><%= t("layout.task.title") %></th>
+    <th><%= t("layout.task.content") %></th>
+    <th><%= t("layout.task.expired_at") %></th>
+    <th><%= t("layout.task.status") %></th>
+    <th><%= t("layout.task.priority") %></th>
+    <th><%= t("layout.task.author") %></th>
+    <th><%= t("layout.views.show") %></th>
+    <th><%= t("layout.views.edit") %></th>
+    <th><%= t("layout.views.destroy") %></th>
+    <th><%= t("layout.task.read_status") %></th>
+  </tr>
+  </thead>
+
+  <tbody id="listWithHandle">
+  <% tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.content %></td>
+        <td><%= task.expired_at %></td>
+        <td><%= task.status %></td>
+        <td><%= task.priority %></td>
+        <td><%= task.user.name %></td>
+        <td><%= link_to t("layout.views.show"), task %></td>
+        <td><%= link_to t("layout.views.edit"), edit_task_path(task) %></td>
+        <td>
+          <%= link_to t("layout.views.destroy"), task, method: :delete,
+                      data: { confirm: t("layout.views.confirm_destroy") } %>
+        </td>
+        <td>
+          <label style="background-color: pink">
+            <%= t("layout.views.read") if read_task_ids.include?(task.id) %>
+          </label>
+          <label style="background-color: gray">
+            <%= t("layout.views.not_read") unless read_task_ids.include?(task.id) %>
+          </label>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

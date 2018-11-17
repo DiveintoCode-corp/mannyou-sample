@@ -1,34 +1,67 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= t("layout.task.index_title") %></h1>
 
-<table>
-  <thead>
-  <tr>
-    <th><%= t("layout.task.title") %></th>
-    <th><%= t("layout.task.content") %></th>
-    <th><%= t("layout.task.expired_at") %></th>
-  </tr>
-  </thead>
+<%= form_with(model: Task.new, local: true, method: :get, url: tasks_path) do |f| %>
+  <%= f.label :title_search, t("layout.task.title_search") %>
+  <%= f.text_field :title, class: 'form-control' %>
 
-  <tbody>
-  <% @tasks.each do |task| %>
-    <tr>
-      <td><%= task.title %></td>
-      <td><%= task.content %></td>
-      <td><%= task.expired_at %></td>
-      <td><%= link_to t("layout.views.show"), task %></td>
-      <td><%= link_to t("layout.views.edit"), edit_task_path(task) %></td>
-      <td>
-        <%= link_to t("layout.views.destroy"), task, method: :delete,
-        data: { confirm: t("layout.views.confirm_destroy") } %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+  <%= f.label :status_search, t("layout.task.status_search") %>
+  <%= f.select :status, Task.statuses.keys, class: 'form-control', include_blank: true, selected: '' %>
+
+  <%= f.label :label_id, t("layout.label.search") %>
+  <%= f.select :label_id, Label.can_use(current_user).map{|l| [l.name, l.id]}, include_blank: true %>
+
+  <%= f.label :status_search, t("layout.views.search_sort_expired") %>
+  <%= f.radio_button :sort_expired, 'true' %>
+
+  <span class='actions'><%= f.submit t("layout.views.search") %></span>
+  <br><br>
+<% end %>
+
+<%= render partial: 'contents_detail', locals: { tasks: @tasks, read_task_ids: @read_task_ids } %>
 
 <br>
 
 <%= link_to t("layout.task.new"), new_task_path %>
-<%= link_to t("layout.task.sort"), tasks_path(sort_created: true) %>
+<%= link_to t("layout.task.sort_expired"), tasks_path(sort_expired: 'true') %>
+<%= link_to t("layout.task.sort_priority"), tasks_path(sort_priority: 'true') %>
+<br>
+<%= link_to t("layout.label.new"), new_label_path %>
+<%= link_to t("layout.label.index"), labels_path %>
+<br>
+<%= link_to t("layout.group.new"), new_group_path %>
+<%= link_to t("layout.group.index"), groups_path %>
+
+<%= paginate @tasks %>
+
+<br><br>
+
+<%= month_calendar do |date| %>
+  <%= date %>
+
+  <!-- N+1起きているが、クエリ発行回数はカレンダー1月分の30回で固定されており、さほど影響ないので一旦放置 -->
+  <% @tasks.due_expire(date).each do |task| %>
+    <p style="color: orangered">期限タスク：<%= task.title %></p>
+  <% end %>
+<% end %>
+
+<br><br>
+
+<p><label style="background-color: orange"><%= t("layout.task.expire_warning_alert") %></label></p>
+<%= render partial: 'contents_detail', locals: { tasks: @expire_warning_tasks, read_task_ids: @read_task_ids } %>
+
+<br><br>
+
+<p><label style="background-color: orangered"><%= t("layout.task.expire_danger_alert") %></label></p>
+<%= render partial: 'contents_detail', locals: { tasks: @expire_danger_tasks, read_task_ids: @read_task_ids } %>
+
+
+
+
+
+
+
+
+
+
+
+
