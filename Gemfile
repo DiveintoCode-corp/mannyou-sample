@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.0'
 
 gem 'bcrypt'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bugsnag'
 gem 'carrierwave'
 gem 'chartkick'
 gem 'coffee-rails', '~> 4.2'
