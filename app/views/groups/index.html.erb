@@ -16,18 +16,8 @@
         <td><%= group.name %></td>
         <td><%= group.description %></td>
         <td><%= link_to t("layout.views.show"), group %></td>
-        <td><%= link_to t("layout.views.edit"), edit_group_path(group) %></td>
-        <td>
-          <% if group.user == current_user %>
-            <%= link_to t("layout.group.delete"), group, method: :delete,
-                        data: { confirm: t("layout.views.confirm_destroy") } %>
-          <% elsif join = group.joins.find_by(user_id: current_user.id) %>
-            <%= link_to t("layout.group.leave"), join_path(join.id), method: :delete,
-                        data: { confirm: t("layout.join.confirm_destroy") } %>
-          <% else %>
-            <%= link_to t("layout.group.join"), joins_path(group_id: group.id), method: :post %>
-          <% end %>
-        </td>
+        <td><%= link_to t("layout.views.edit"), edit_group_path(group) if group.user == current_user %></td>
+        <td><%= participate_or_withdraw(group, current_user) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,3 +26,9 @@
 <br>
 
 <%= link_to t("layout.group.new"), new_group_path %>
+<br>
+<%= link_to t("layout.task.new"), new_task_path %>
+<%= link_to t("layout.task.index"), tasks_path %>
+<br>
+<%= link_to t("layout.label.new"), new_label_path %>
+<%= link_to t("layout.label.index"), labels_path %>

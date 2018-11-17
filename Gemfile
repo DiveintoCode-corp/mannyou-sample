@@ -29,6 +29,8 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
@@ -37,7 +39,14 @@ end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'poltergeist'
 end
 

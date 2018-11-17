@@ -5,12 +5,7 @@ class LabelsController < ApplicationController
 
   def index
     @labels = Label.where(user_id: current_user.id)
-
-    @chat_labels = []
-    Label.where(user_id: nil).each do |label|
-      chat_label = [label.name, Labeling.where(label_id: label.id).count]
-      @chat_labels << chat_label
-    end
+    @chat_labels = Label.chat_date_extraction
   end
 
   def new

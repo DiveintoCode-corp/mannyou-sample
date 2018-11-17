@@ -1,6 +1,7 @@
 ja:
   layout:
     session:
+      submit: "ログインする"
       notice_fail: "ログインに失敗しました"
       notice_logout: "ログアウトしました"
       require_login: "ログインしてください"
@@ -28,12 +29,16 @@ ja:
       expire_warning_alert: "もうすぐ期限が切れそうなタスク一覧です"
       expire_danger_alert: "期限が切れてしまったタスク一覧です"
       read_status: "既読・未読"
+      not_create: "タスクが保存できませんでした"
+      not_update: "タスクが更新できませんでした"
+      not_labeling: "ラベリングに失敗したため、タスクの保存ができませんでした"
     label:
       new: "ラベルを登録する"
       index: "ラベル一覧を見る"
       new_title: "ラベル登録"
       edit_title: "ラベル編集"
       index_title: "ラベル一覧"
+      my_title: "自作ラベル一覧"
       name: "ラベル名"
       default: "デフォルトラベルか？"
       notice_create: "ラベル情報を登録しました"
@@ -76,6 +81,8 @@ ja:
       sign_up: "ユーザー登録"
       login: "ログイン"
       logout: "ログアウト"
+      profile: "プロフィール"
+      admin_dashboard: "管理画面"
       read: "既読"
       not_read: "未読"
     admin:
