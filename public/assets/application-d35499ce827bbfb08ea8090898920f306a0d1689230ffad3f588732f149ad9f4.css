@@ -1,0 +1,78 @@
+/* line 2, /Users/shibatadaiki/RubymineProjects/mannyou-dev/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app/assets/stylesheets/simple_calendar.scss */
+.simple-calendar table {
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+}
+/* line 13, /Users/shibatadaiki/RubymineProjects/mannyou-dev/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app/assets/stylesheets/simple_calendar.scss */
+.simple-calendar tr {
+  border-collapse: collapse;
+}
+/* line 17, /Users/shibatadaiki/RubymineProjects/mannyou-dev/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app/assets/stylesheets/simple_calendar.scss */
+.simple-calendar th {
+  padding: 6px;
+  border-bottom: 2px solid #dddddd;
+  border-collapse: collapse;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-top: 0px none #333333;
+  box-sizing: border-box;
+  text-align: left;
+}
+/* line 28, /Users/shibatadaiki/RubymineProjects/mannyou-dev/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app/assets/stylesheets/simple_calendar.scss */
+.simple-calendar td {
+  padding: 6px;
+  vertical-align: top;
+  width: 14%;
+  border: 1px solid #ddd;
+  border-top-color: #dddddd;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-color: #dddddd;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-color: #dddddd;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #dddddd;
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+/* line 48, /Users/shibatadaiki/RubymineProjects/mannyou-dev/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app/assets/stylesheets/simple_calendar.scss */
+.simple-calendar .day {
+  height: 80px;
+}
+/* line 60, /Users/shibatadaiki/RubymineProjects/mannyou-dev/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app/assets/stylesheets/simple_calendar.scss */
+.simple-calendar .today {
+  background: #FFFFC0;
+}
+/* line 69, /Users/shibatadaiki/RubymineProjects/mannyou-dev/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app/assets/stylesheets/simple_calendar.scss */
+.simple-calendar .prev-month {
+  background: #DDD;
+}
+/* line 72, /Users/shibatadaiki/RubymineProjects/mannyou-dev/vendor/bundle/ruby/2.5.0/gems/simple_calendar-2.3.0/app/assets/stylesheets/simple_calendar.scss */
+.simple-calendar .next-month {
+  background: #DDD;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+
+ */
+
