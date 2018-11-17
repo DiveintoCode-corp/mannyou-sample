@@ -300,6 +300,29 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="bugsnag (vbundled(6.9.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="2" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/features" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/features" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/bugsnag-6.9.0/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="builder (vbundled(3.2.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="2" />
@@ -388,24 +411,6 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/chartkick-3.0.1/lib" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/chartkick-3.0.1/vendor" />
         </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="childprocess (vbundled(0.9.0)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="2" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/childprocess-0.9.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/childprocess-0.9.0/spec" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/childprocess-0.9.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/childprocess-0.9.0/spec" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/childprocess-0.9.0/spec" />
-        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -1649,27 +1654,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="rubyzip (vbundled(1.2.2)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="2" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rubyzip-1.2.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rubyzip-1.2.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rubyzip-1.2.2/samples" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rubyzip-1.2.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rubyzip-1.2.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rubyzip-1.2.2/samples" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rubyzip-1.2.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rubyzip-1.2.2/samples" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="sass (vbundled(3.5.7)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="2" />
@@ -1719,19 +1703,6 @@
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/sass-rails-5.0.7/lib" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="selenium-webdriver (vbundled(3.14.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="2" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/selenium-webdriver-3.14.1/lib" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/selenium-webdriver-3.14.1/lib" />
         </SOURCES>
       </library>
     </orderEntry>
