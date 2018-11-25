@@ -6,6 +6,7 @@ gem 'rails', '~> 5.2.0'
 
 # アルファベット順
 
+gem 'aws-sdk-s3', require: false
 gem 'bcrypt'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bugsnag'
