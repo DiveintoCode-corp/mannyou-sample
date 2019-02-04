@@ -45,7 +45,7 @@ class TasksController < ApplicationController
     if @task.valid?
       ActiveRecord::Base.transaction do
         @task.save!
-        Labeling.tasks!(labeling_params[:label_ids], @task) if params[:task][:label_ids].present?
+        Labeling.paste_tasks!(labeling_params[:label_ids], @task) if params[:task][:label_ids].present?
       end
       redirect_to @task, notice: t("layout.task.notice_create")
     else
